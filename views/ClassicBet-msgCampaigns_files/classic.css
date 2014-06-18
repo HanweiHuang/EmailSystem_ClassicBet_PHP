@@ -1,0 +1,185 @@
+.navbar {
+    background: none repeat scroll 0 0 #191919;
+	border-color: #DED087;
+}
+
+.hidden	{
+	display: none;
+}
+
+.navbar a div {
+	float: right;
+}
+
+.navbar > .container .navbar-brand {
+    margin-top: -3px;
+}
+
+select#country
+{
+	margin-top: 10px;
+}
+
+.form-group select
+{
+	width: 100%;
+}
+
+#container .form-wizard .steps li.done .step .number {
+    background-color: #DED087;
+    border-color: #D7C252;
+    color: #585858;
+}
+
+#container .form-wizard .steps li.done .step {
+	color: #585858;
+}
+
+#container .form-wizard .steps li.active .step .number {
+    background-color: #585858;
+    border-color: #000;
+	color: #FFF; 
+}
+
+#container .progress-bar {
+    background-color: #DED087;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.05) inset;
+}
+
+#container .progress-success .progress-bar, .progress .progress-bar-success, .progress-success.progress-striped .progress-bar, .progress-striped .progress-bar-success {
+    background-color: #DED087;
+}
+
+#lowerBar
+{
+    background-color: #191919;
+    bottom: 0;
+    display: block;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+	border-top: 2px solid #DED087;
+	
+}
+
+#lowerBar > div
+{
+	float: right;
+	width: 12%;
+	color: #FFFFFF;
+	
+}
+
+.label-setup
+{
+	background: #c55796;
+}
+
+.label-noID
+{
+	background: #f8943f;
+}
+
+.label-account
+{
+	background: #03b39c;
+}
+
+.label-lead
+{
+	background: #67bbe9;
+}
+
+
+.btn-primary {
+    background-color: #DED087;
+    border-color: #D7C252;
+    color: #585858;
+}
+
+.btn-primary:hover {
+    background-color: #ecd03b;
+    border-color: #d5b824;
+    color: #000;
+}
+
+.form-wizard ul
+{
+	overflow: auto;
+}
+
+.add_item
+{
+	margin-top: 3px;
+}
+
+.add_item select
+{
+	margin-top: 3px;
+}
+
+div.add_item .icon-trash
+{
+	float: right;
+    font-size: 18px;
+    margin: 7px;
+    position: absolute;
+	cursor: pointer;
+}
+
+div.add_item .inputDiv input
+{
+	float: left;
+	width: 100%;
+}
+
+#content h1
+{
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.tabbable h3
+{
+	margin: -55px 0px 40px 30px;
+}
+
+.form-actions.top {
+	background: #FAFAFA;
+    padding: 10px 20px;
+}
+
+.row.Editing
+{
+	margin-top: -55px;
+}
+
+.row.Editing .widget-header
+{
+	display: none;	
+}
+
+.row.Editing .widget.box {
+    border-top: 0px none;
+}
+
+#userHeader {	clear: both;	}
+
+#userHeader .btn
+{
+	display: none;
+	float: right;
+}
+
+#userHeader.account .btn.account	{ 	display: block; }
+
+#userHeader.lead .btn.lead	{ 	display: block; }
+
+#userHeader.closed .btn.closed	{ 	display: block; }
+
+#userHeader.blocked .btn.blocked	{ 	display: block; }
