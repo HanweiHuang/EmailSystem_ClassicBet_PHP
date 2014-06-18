@@ -369,6 +369,30 @@ class SMTPH{
         return $noerror;
     }
     
+    /**
+     * send a email commend 
+     * send sender email address to smtp server
+     * smtp will send ok as a response
+     * implements rfc :
+     * MAIL FROM:<reverse-path> [sp<mail-parameters>]<CRLF>
+     * @param type $from
+     * @return type
+     */
+    public function mail($from){
+        $useVerp = ($this->do_verp?'XVERP':'');
+        return $this->sendCommand('MAIL FROM', 'MAIL FROM:<'.$from.'>'.$useVerp, 250);
+    }
+    /**
+     * after send sender's email address to smtp server and get response from it as well
+     * client should send receiver address to smtp server
+     * implement rfc:
+     * RCPT <SP> TO:<forward-path><CRLF>
+     * @param type $toaddr
+     * @return type
+     */
+    public function recipient($toaddr){
+        return $this->sendCommand('RCPT TO', 'RCPT TO:<'.$toaddr.'>', array(250,251));
+    }
     //get the lastest error
     public function getError(){
         return $this->error;

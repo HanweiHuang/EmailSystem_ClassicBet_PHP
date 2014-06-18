@@ -9,6 +9,21 @@ include_once 'class.smtp.php';
 class Mailer{
     
     /**
+     * the from email of the message
+     * @var type 
+     */
+    public $From = 'wei2215038@gmail.com';
+    /**
+     * the from name of the message
+     * @var type 
+     */
+    public $FromName = 'Root User';
+    /**
+     * the sender email of the message
+     * @var type 
+     */
+    public $Sender = '';
+    /**
      * the MIME Content-type of the message
      * could be text/plain, text/html
      * @var type 
@@ -132,7 +147,7 @@ class Mailer{
      *the array of to addresses
      * @var type 
      */
-    protected $to = array();
+    protected $to = array('wei2215038@gmail.com');
     /**
      *the array of cc addresses
      * @var type 
@@ -154,6 +169,13 @@ class Mailer{
      * @var type 
      */
     protected $attachment = array();
+    //////////////////////////////////////////////
+    /**
+     * the number of errors encountered
+     * @var type 
+     */
+    protected $error_count = 0;
+    
     
     /**
      * output debug info 
@@ -229,6 +251,28 @@ class Mailer{
     }    public $do_verp = false;
     
     
+    public function addAnAddress($kind,$address,$name=''){
+        if(!preg_match('/^(to|cc|bcc|Reply-To)$/', $kind)){
+            $this->edebug($this->lang('Invalid recipient array').':',$kind);
+            return false;
+        }
+        $address = trim($address);
+        $name = trim(preg_match('/[\r\n]+/','',$name));
+        if(!$this->validateAddress($address)){
+            
+        }
+    }
+    /**
+     * add an error message to the error container
+     * @param type $msg
+     */
+    public function setError($msg){
+        $this->error_count++;
+        if($this->Mailer=='smtp'){
+            
+        }
+    }
+    
     public function getSMTPInstance(){
         if(!is_object($this->smtp)){
             $this->smtp = new SMTPH();
@@ -241,13 +285,23 @@ class Mailer{
      * return false if there is a bad MAIL FROM DATA input
      * @see PHPMailer::getSMTPInstance() to use a different class
      */
-    protected function smtpSend($header,$body){
+    public function smtpSend($header,$body){
         $bar_rcpt = array();
         
         if(!$this->smtpConnect()){
             throw new phpmailerException($this->lang('smtp_connection_failed'),self::STOP_CRITICAL);
         }
-        $smtp_from = ($this->Sender =='');
+        $smtp_from = ($this->Sender =='')?$this->From:$this->Sender;
+        if(!$this->smtp->mail($smtp_from)){
+            $this->setError();
+        }
+        
+        //attempt to send to all recipients
+        foreach($this->to as $to){
+            if(!$this->smtp->recipient($to)){
+                
+            }
+        }
     }
     /**
      * connect smtpserver

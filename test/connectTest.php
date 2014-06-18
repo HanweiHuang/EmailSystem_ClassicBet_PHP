@@ -24,4 +24,6 @@ include 'class.mailer.php';
 $te = new Mailer();
 //connect smtp server
 echo $te->smtpConnect();
+echo "dddddddddddddddddddddddddddddddddddddddddddd<br>";
 //authentiation
+$te->smtpSend("1","2");

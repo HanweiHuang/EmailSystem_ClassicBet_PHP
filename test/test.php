@@ -15,5 +15,9 @@ include_once 'class.mailer.php';
 //
 //$test->authenticate('wei2215038@gmail.com', 'sally19870627');
 //$test->hh();
-$gg = new Mailer();
-$gg->edebug("hrht");
+//$gg = new Mailer();
+//$gg->edebug("hrht");
+
+$s = 1;
+$g = ($s=='')?2:3;
+echo $g;
