@@ -1,1 +1,1 @@
-new version of msc, change the structure.
+finally version of EmailSystem for ClassicBet
